@@ -12,14 +12,14 @@
         <form method="POST" action="/my_first_form.php">
             <p>
                 <label for="username">Username</label>
-                <input id="username" name="username" type="text">
+                <input id="username" name="username" type="text" placeholder="username here">
             </p>
             <p>
                 <label for="password">Password</label>
-                <input id="password" name="password" type="password">
+                <input id="password" name="password" type="password" placeholder="password here">
             </p>
             <p>
-                <input type="submit">
+                <input type="button" value="Login">
             </p>
         </form>
     </body>
