@@ -95,8 +95,29 @@
                 <label for="state4"><input type="checkbox" id=state3 name="state of[]" value ="Florida">Florida</label>    
             <p>
                 <input type="submit" value="Submit">
-            </p>       
-        </form>    
+            </p> 
+            <label for="os">What type of mobile phone do you have?</label>
+            <select id="os" name="os">
+                <option>iOS</option>
+                <option>Android</option>
+                <option>Windows</option>
+            </select>  
+            <p>
+                <input type="submit" value="Submit">
+            </p>        
+        </form>  
+
+        <h3>Select Testing</h3>
+        <form>
+            <label for="phone">Do you have a mobile phone?</label>
+            <select id="phone" name="phone">
+                <option value="1">yes</option>
+                <option value="0">no</option>
+            </select>  
+            <p>
+                <input type="submit" value="Submit">
+            </p>      
+        </form>  
 
     </body>
 </html>
