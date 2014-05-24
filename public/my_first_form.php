@@ -45,10 +45,58 @@
 
             <p>
                 <input type="submit" value="Send">
-
-            </p>
+            </p>    
+            <label for="mailing_list">Would you like to save this message to your sent folder?
+            <input type="checkbox" id="mailing_list" name="mailing_list" value="yes" checked> 
+            </label>
         </form> 
 
+        <h3>Multiple Choice Test</h3>
+        <form method="Post" action="/my_first_form.php"> 
+            <p>What is the capital of Texas?</p>
+                <label for="q1a">
+                    <input type="radio" id="q1a" name="q1" value="Houston">
+                    Houston
+                </label> 
+                <label for="q1b">
+                    <input type="radio" id="q1b" name="q1" value="Dallas">
+                    Dallas
+                </label> <label for="q1c">
+                    <input type="radio" id="q1c" name="q1" value="Austin">
+                    Austin
+                </label> <label for="q1d">
+                    <input type="radio" id="q1d" name="q1" value="San Antonio">
+                    San Antonio
+                </label>  
+
+            <p>What is the capital of California?</p>
+                <label for="q2a">
+                    <input type="radio" id="q2a" name="q2" value="Los Angeles">
+                    Los Angeles
+                </label> 
+                <label for="q2b">
+                    <input type="radio" id="q2b" name="q2" value="San Francisco">
+                    San Francisco
+                </label> <label for="q2c">
+                    <input type="radio" id="q2c" name="q2" value="Fresno">
+                    Fresno
+                </label> <label for="q2d">
+                    <input type="radio" id="q2d" name="q2" value="Sacramento">
+                    Sacramento
+                </label> 
+            <p>
+                <input type="submit" value="Submit">
+            </p>   
+
+            <p>What states have you lived in?</p> 
+                <label for="state1"><input type="checkbox" id=state1 name="state of[]" value ="California">California</label>    
+                <label for="state2"><input type="checkbox" id=state2 name="state of[]" value ="Texas">Texas</label>    
+                <label for="state3"><input type="checkbox" id=state3 name="state of[]" value ="North Carolina">North Carolina</label>    
+                <label for="state4"><input type="checkbox" id=state3 name="state of[]" value ="Florida">Florida</label>    
+            <p>
+                <input type="submit" value="Submit">
+            </p>       
+        </form>    
 
     </body>
 </html>
