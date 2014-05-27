@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body>
+	<script>
+	// todo: Ask the user for their name.
+	// Keep asking if an empty input is provided.
+	var response = prompt('what is your name?');
+
+	while (response == '' || response == null) {
+		response = prompt('what is your name?');
+	}
+
+	// todo: Show an alert message that welcomes the user based on their input.
+	alert('Thanks for visiting ' + response);
+	
+
+	// todo: Ask the user if they like pizza.
+	//       Based on their answer tell show a creative alert message.
+	var userlikespizza = confirm('Do you like pizza?');
+		if (userlikespizza == true) {
+			alert('Okay, well I\'ll go buy some!');
+		} else	{
+			alert('Cance? Okay, I will cancel your order.');
+		}
+	</script>	
+	</body>
+
+</html>
