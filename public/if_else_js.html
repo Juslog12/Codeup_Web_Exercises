@@ -13,21 +13,21 @@
 
 	// todo: Create a block of if/else statements to check for every color except indigo and violet 
 
-	if (colors == 'red'){
+	if (color == 'red'){
 		console.log ("Red is the color of roses");
-	}else if (colors == 'blue'){
+	}else if (color == 'blue'){
 		console.log ("Blue is the color of the ocean");
-	}else if (colors == 'yellow'){
+	}else if (color == 'yellow'){
 		console.log ("Yellow is the color of sunflowers");
-	}else if (colors == 'green'){
+	}else if (color == 'green'){
 		console.log ("Green is the color of grass");
-	}else if (colors == 'orange'){
+	}else if (color == 'orange'){
 		console.log ("Orange is the color of the sun");
-	}else if (colors == 'violet' && 'indigo'){
+	}else if (color == 'violet' || 'indigo'){
 		console.log ("I do not know anything by that color");
 	}
 
-	var colors = (favorite) ? "This color matches my favorite color, blue." : "Not my favorite color";
+	var message = (color == favorite) ? "This color matches my favorite color, blue." : "Not my favorite color" console.log(message);
 	// todo: When a color is encountered log a message that tells the color, and an object of that color.
 	//       Example: Blue is the color of the sky.
 
@@ -36,6 +36,26 @@
 
 	// todo: Using the ternary operator, conditionally log a statement that
 	//       says whether the random color matches your favorite color.
+
+	switch (color) {
+		case "red":
+			console.log("Red is the color of roses")
+			break;
+		case "orange":
+			console.log("Orange is the color of the sun")
+			break;
+		case "yellow":
+			console.log("Yellow is the color of sunflowers")
+			break;
+		case "green":
+			console.log("Green is the color of grass")
+			break;	
+		case "blue":
+			console.log(Blues is the color of the ocean)
+			break;
+		default:
+			console.log("I do not know anything about that color")				
+	}
 
 	</script>
 	</body>
