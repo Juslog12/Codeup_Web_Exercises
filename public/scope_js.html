@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body>
+	<script>
+	 // todo: Fill in your name here.
+
+	// todo:
+	// Create a function called 'sayHello' that takes a parameter 'name'.
+	(function sayHello(name) {
+		var myNameIs = 'Justin'; 
+		console.log ('hello from ' + name);
+	})();
+	// When called, the function should log a message that says hello from the passed in name.
+
+	// todo: Call the function 'sayHello' passing the variable 'myNameIs' as a parameter.
+
+	//sayHello(myNameIs);
+
+	// do not worry about the details of this line
+	// just know that it genrates a random number between 1 and 100
+	
+	// todo:
+	// Create a function called 'isOdd' that takes a number as a parameter.
+	// The function should use the ternary operator to log a message.
+	// The log should tell the number passed in and whether it is odd or not.
+
+	(function isOdd(random) {
+		var random = Math.floor((Math.random()*100)+1);
+		var remainder = random % 2;
+	
+	var message = (remainder == 0) ? random + " is even" : random + " is odd"; 
+	console.log(message);
+	})();
+	// todo: Call the function 'isOdd' passing the variable 'random' as a parameter.
+	//isOdd(random); 
+
+	</script>	
+	</body>
+</html>
