@@ -35,11 +35,7 @@ class AddressDataStore
 				fputcsv($handle, $fields);
 			}
 		fclose($handle);
-	}	
-	function __destruct() 
-    {
-        echo "Class dismissed!";
-    }
+	}		
 }
 
 $ads = new AddressDataStore("contacts.csv");
