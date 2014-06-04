@@ -1,46 +1,10 @@
 <?
+include('classes/address_data_store.php');
 $address_book = [];
 $errorMessage = '';
 $filename = 'contacts.csv';
-
-class AddressDataStore 
-{
-	public $filename = '';
-	function __construct($filename)
-	{
-		$this->filename = $filename;
-	}
-	function readAddressBook()
-	{
-		$addresses = [];
-		$handle = fopen($this->filename, 'r');
-		$addresses = [];
-			while(!feof($handle)) 
-			{
-				$row = fgetcsv($handle);
-				if(!empty($row))
-				{		
-				$addresses[] = $row;
-				}
-			}
-		fclose($handle);		
-		return $addresses;
-	
-	}
-	function writeAddressBook($addresses_array)
-	{
-		$handle = fopen($this->filename, 'w');
-			foreach ($addresses_array as $fields) 
-			{
-				fputcsv($handle, $fields);
-			}
-		fclose($handle);
-	}		
-}
-
 $ads = new AddressDataStore("contacts.csv");
 //$ads->filename = 'contacts.csv';
-
 $addressBook = $ads->readAddressBook();
 
 if (!empty($_POST))
@@ -94,7 +58,7 @@ if (!empty($_POST))
 		<? endforeach; ?>	
 		</table>
 		</p>
-	<form method="POST" action="address_book.php">
+		<form method="POST" action="address_book.php">
 		<p>
 			<label for="Name">Name</label>
 			<input id="Name" name="Name" type="text" autofocus = "autofocus"><br></input>
