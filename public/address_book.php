@@ -1,5 +1,5 @@
 <?
-include('classes/address_data_store.php');
+require_once('classes/address_data_store.php');
 $address_book = [];
 $errorMessage = '';
 $filename = 'contacts.csv';
@@ -40,24 +40,24 @@ if (!empty($_POST))
 		<body>	
 		<h3>Address Book</h3>
 			<p>	
-			<table border="1">
-				<tr>
-					<th>Name</th>
-					<th>Address</th>
-					<th>City</th>
-					<th>State</th>
-					<th>Zip</th>
-					<th>Phone</th>
-				</tr>
-			<? foreach ($addressBook as $index => $row): ?>
-			<tr>
-				<? foreach ($row as $column): ?>		
-					<td><?= $column;?></td>
-				<? endforeach; ?>
-			</tr>
-		<? endforeach; ?>	
-		</table>
-		</p>
+				<table border="1">
+					<tr>
+						<th>Name</th>
+						<th>Address</th>
+						<th>City</th>
+						<th>State</th>
+						<th>Zip</th>
+						<th>Phone</th>
+					</tr>
+				<? foreach ($addressBook as $index => $row): ?>
+					<tr>
+						<? foreach ($row as $column): ?>		
+						<td><?= $column;?></td>
+						<? endforeach; ?>
+					</tr>
+				<? endforeach; ?>	
+				</table>
+			</p>
 		<form method="POST" action="address_book.php">
 		<p>
 			<label for="Name">Name</label>
