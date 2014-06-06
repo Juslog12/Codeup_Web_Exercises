@@ -21,7 +21,7 @@ div {
 	width: 18px;
 	position: absolute;
 	top: 80px;
-	left: 100px;
+	left: 80px;
 }
 
 #picture2 {
@@ -31,7 +31,7 @@ div {
 	width: 18px;
 	position: absolute;
 	top: 80px;
-	left: 300px;
+	left: 280px;
 }
 
 #picture3 {
@@ -41,7 +41,7 @@ div {
 	width: 18px;
 	position: absolute;
 	top: 80px;
-	left: 500px;
+	left: 480px;
 }
 
 #picture4 {
@@ -51,7 +51,7 @@ div {
 	width: 18px;
 	position: absolute;
 	top: 260px;
-	left: 100px;
+	left: 80px;
 }
 
 #picture5 {
@@ -61,7 +61,7 @@ div {
 	width: 18px;
 	position: absolute;
 	top: 260px;
-	left: 300px;
+	left: 280px;
 }
 
 #picture6 {
@@ -71,7 +71,18 @@ div {
 	width: 18px;
 	position: absolute;
 	top: 260px;
-	left: 500px;
+	left: 480px;
+}
+
+#picture7 {
+	background-image: url(/codeup-ribbon.png);
+	postiion: fixed;
+	top:0px;
+	border: 0px;
+	height: 80px;
+	width: 120px;
+	float: right
+	
 }
 
 #div1 
@@ -79,6 +90,7 @@ div {
 	background-color: red;
 	position: absolute;
 	top: 120px;
+
 }
 
 #div2 
@@ -120,4 +132,6 @@ div {
 	top: 300px;
 	margin-left: 400px;
 }
+
+
 
