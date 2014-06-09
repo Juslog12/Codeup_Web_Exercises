@@ -1,0 +1,73 @@
+<html>
+<head>
+    <title>DOM: Query and Modify</title>
+</head>
+<body>
+
+    <h1 id="main-header">Hello World!</h1>
+    <ul>
+        <li id="one" class="odd" data-dbid="1">Item 1</li>
+        <li class="even" data-dbid="2">Item 2</li>
+        <li class="odd" data-dbid="3">Item 3</li>
+        <li class="even" data-dbid="4">Item 4</li>
+        <li class="odd" data-dbid="5">Item 5</li>
+    </ul>
+    <h2 id="sub-header">Hello Again.</h2>
+    <p class="sub-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <script>
+
+        // todo: get the main header element by id
+        var mainHeader =document.getElementById('main-header');
+        console.log(mainHeader);
+
+        // todo: set inner html of mainHeader to "JavaScript is Cool"
+
+        // assign a new value to the inner HTML of the main heading
+        mainHeader.innerHTML = "JavaScript is Cool!";
+
+        console.log(mainHeader.innerHTML); // prints Hello Codeup!
+
+
+        // todo: get the sub header element by id
+        var subHeader =document.getElementById('sub-header');
+        console.log(subHeader);
+
+        // todo: set the text color of subHeader to blue
+        subHeader.style['color'] = 'blue';
+        console.log(subHeader.style['color']);
+
+        // todo: get all list items
+       // get the main heading h1 by id
+        var listItems =document.getElementsByTagName('li');
+
+        for (var i = 0; i < listItems.length; i++) {
+            var dbId = listItems[i].attributes['data-dbid'].value;
+            console.log(dbId);
+        }
+
+        // todo: set text color on every other list item to grey
+        var evenElements =document.getElementsByTagName('li');
+
+        for (var i = 1; i < evenElements.length; i += 2) {    
+                evenElements[i].style['color'] = "grey";
+        }    
+
+        // todo: set text color of li with dbid = 1 to blue
+        if (dbId == "1") {
+            listItems[i].style['color'] = "blue";
+        }
+        //var dBId =document.getElementById('one');
+        //dBId.style['color'] = 'blue';
+        //console.log(dBid.style['color']);
+
+        // todo: get all elements with class name sub-paragraph
+        var subParagraphs =document.getElementsByClassName('sub-paragraph');
+        subParagraphs[0].innerHTML = "Mission Accomplished";
+
+        // todo: change the text in the first sub paragraph to "Mission Accomplished!"
+
+    </script>
+
+</body>
+</html>
