@@ -28,13 +28,17 @@
 	</div>
 
 <script>
-//$(document).ready(function() {
- //   alert( 'The DOM has finished loading!' );
-//});
+$('h1').click(function(){
+	$(this).css('background-color', '#FF0');
+});
 
-//Exercise
-//$('li').css('font-size', '20px');
-$('h1, p,li').css('background-color', '#FF0');
+$('p').dblclick(function(){
+	$(this).css('font-size', '18px');
+});
+
+$('li').hover(function(){
+	$(this).css('color', 'red');
+});
 
 </script>
 </body>
