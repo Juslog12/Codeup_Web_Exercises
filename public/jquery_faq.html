@@ -1,0 +1,75 @@
+<html>
+<head>
+	<title></title>
+	<script src="/js/jquery.js"></script>
+	<style>
+		.invisible 
+			{
+			display: none;
+			}	
+	</style>
+</head>
+<body>
+	<dl>
+		<dt>What is the most visited national park?</dt>
+			<dd class="invisible">The Great Smokey Mountains.</dd>
+		<dt>What is the second most visited national park?</dt>
+			<dd class="invisible">The Grand Canyon.</dd>	
+		<dt>Where is Yosemite national park?</dt>
+			<dd class="invisible">California.</dd>	
+		<dt>What national park has more hotsprings than any other?</dt>
+			<dd class="invisible">Yellowstone.</dd>
+		<dt>Which national park has more than 150 lakes?</dt>
+			<dd class="invisible">Rocky Mountain.</dd>
+		<dt>Which national park has the word "Olympic" in it?</dt>
+			<dd class="invisible">Olympic national park. Okay, that was a gimme.</dd>	
+		<dt>Where is Grand Teton national park?</dt>
+			<dd class="invisible">Wyoming.</dd>	
+		<dt>What national park has the Teton Range?</dt>
+			<dd class="invisible">Yes, also Grant Teton.</dd>
+		<dt>Which national park contains the Virgin River?</dt>
+			<dd class="invisible">Zion national park.</dd>
+		<dt>Which national park contains the Blue Hen falls?</dt>
+			<dd class="invisible">Cuyahoga Valley.</dd>			
+	</dl>
+	<a href="#" id="answers">Click for Answers</a> 
+
+	<h1>Parks List</h1>
+    <h3>Yosemite</h3>
+    <ul>
+        <li>North Ca</li>
+        <li>Very big</li>
+        <li>Very nice</li>
+        <li>Lots of climbing</li>        
+    </ul>
+
+    <h3>Joshua Tree</h3>
+    <ul>
+        <li>Central Ca</li>
+        <li>Somewhat big</li>
+        <li>Very nice</li>
+        <li>Lots of bolders</li>  
+    </ul>
+
+     <h3>Sequoia</h3>
+    <ul>
+        <li>North Ca</li>
+        <li>Somewhat big</li>
+        <li>Very nice</li>
+        <li>Lots of big trees</li>
+    </ul>
+
+<script>
+	$('#answers').click(function(event){
+		event.preventDefault();
+		$('dd').toggleClass('invisible');
+	});
+
+	$('ul').each(function(index) {
+		$(this).children().first().css('font-weight', 'bold');
+	});
+
+</script>	
+
+</body>
+</html>
