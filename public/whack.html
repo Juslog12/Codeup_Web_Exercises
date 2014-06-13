@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>Whack</title>
+	<script src="/js/jquery.js"></script>
+	<style type="text/css">
+	.box {
+		display: none;
+	}
+	</style>
+</head>
+<body>
+<div id="moleToggle" class="box">
+	<img id="mole" src="/img/mole.jpg"></img>
+</div>	
+
+<script>
+
+$('#moleToggle').fadeIn();
+
+
+$('#moleToggle').click(function() {
+		$(this).fadeOut(); 
+		});
+
+
+
+
+</script>
+
+
+</body>
+</html>
