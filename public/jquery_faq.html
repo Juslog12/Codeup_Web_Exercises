@@ -69,6 +69,11 @@
 		$(this).children().first().css('font-weight', 'bold');
 	});
 
+	$('li').click(function(event){
+		event.preventDefault();
+		$('li').parent().toggleClass('invisible');
+	});
+
 </script>	
 
 </body>
