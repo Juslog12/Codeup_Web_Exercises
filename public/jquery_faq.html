@@ -35,24 +35,24 @@
 	<a href="#" id="answers">Click for Answers</a> 
 
 	<h1>Parks List</h1>
-    <h3>Yosemite</h3>
-    <ul>
+    <h3 id="yosemiteToggle">Yosemite</h3>
+    <ul id="yosemite">
         <li>North Ca</li>
         <li>Very big</li>
         <li>Very nice</li>
         <li>Lots of climbing</li>        
     </ul>
 
-    <h3>Joshua Tree</h3>
-    <ul>
+    <h3 id="joshuaTreeToggle">Joshua Tree</h3>
+    <ul id="joshuaTree">
         <li>Central Ca</li>
         <li>Somewhat big</li>
         <li>Very nice</li>
         <li>Lots of bolders</li>  
     </ul>
 
-     <h3>Sequoia</h3>
-    <ul>
+     <h3 id="sequoiaToggle">Sequoia</h3>
+    <ul id="sequoia">
         <li>North Ca</li>
         <li>Somewhat big</li>
         <li>Very nice</li>
@@ -62,17 +62,24 @@
 <script>
 	$('#answers').click(function(event){
 		event.preventDefault();
-		$('dd').toggleClass('invisible');
+		$('dd').slideToggle('invisible');
 	});
 
 	$('ul').each(function(index) {
 		$(this).children().first().css('font-weight', 'bold');
 	});
 
-	$('li').click(function(event){
-		event.preventDefault();
-		$(this).parent().hide();
-	});
+	$('#yosemiteToggle').click(function() {
+		$('#yosemite').slideToggle();
+		});
+	$('#joshuaTreeToggle').click(function() {
+		$('#joshuaTree').slideToggle();
+		});	
+	$('#sequoiaToggle').click(function() {
+		$('#sequoia').slideToggle();
+		});	
+
+
 
 </script>	
 
