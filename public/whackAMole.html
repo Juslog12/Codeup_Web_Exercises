@@ -1,0 +1,160 @@
+<html>
+<head>
+	<title id="title">Whack A Mole</title>
+	<link href='http://fonts.googleapis.com/css?family=Nunito:400,700' rel='stylesheet' type='text/css'>
+	<script src="/js/jquery.js"></script>
+	<style type>
+	.mainbox{
+		width: 610px;
+		height: 610px;
+		margin-left: 250;
+		margin-right: auto;
+		margin-top: 50px;
+		position:absolute;
+	}
+
+	.box{
+		width: 200px;
+		height: 200px;
+		
+		float: left;
+		
+
+	}
+
+	.mole{
+		display:none;
+		width: 180px;
+		height: 180px;
+		border-top-left-radius: 15em;
+		border-top-right-radius: 15em;
+		border-bottom-left-radius: 15em;
+		border-bottom-right-radius: 15em;
+
+	}
+
+	.explode{
+		display:none;
+		width: 180px;
+		height: 180px;
+	}
+
+	.buttons{
+		width: 80px;
+		height: 20px;
+		border: 2px solid black;
+		background-color: 999999;
+	}
+
+	#button{
+		font-family: sans-serif;
+		font-weight: bold;
+		float: left;
+		color: white;
+	}
+
+	body{
+		background-image: url(/img/cartoon_space.jpg);
+	}
+
+	h1{
+		font-family: 'Nunito', sans-serif;
+		font-color: blue;
+	}
+
+	#heading{
+		top: 0px;
+		position: absolute;
+		margin-left: 450;
+		margin-right: auto;
+		color: white;
+	}
+
+
+	</style>
+	<div id='heading'><h1 id="one">Whack A Mole in Space!!</h1></div>
+</head>
+<body>
+<div class="mainbox" id="mainboxToggle">
+	<div class="box" id="one">
+		<img class="mole" src="/img/mole_cartoon_T.png">
+		<img class="explode" src="/img/explode.svg">
+	</div>
+	<div class="box" id="two">
+		<img class="mole" src="/img/mole_cartoon_T.png">
+		<img class="explode" src="/img/explode.svg">
+	</div>
+	<div class="box" id="three">
+		<img class="mole" src="/img/mole_cartoon_T.png">
+		<img class="explode" src="/img/explode.svg">
+	</div>
+	<div class="box" id="four">
+		<img class="mole" src="/img/mole_cartoon_T.png">
+		<img class="explode" src="/img/explode.svg">
+	</div>
+	<div class="box" id="five">
+		<img class="mole" src="/img/mole_cartoon_T.png">
+		<img class="explode" src="/img/explode.svg">
+	</div>
+	<div class="box" id="six">
+		<img class="mole" src="/img/mole_cartoon_T.png">
+		<img class="explode" src="/img/explode.svg">
+	</div>
+	<div class="box" id="seven">
+		<img class="mole" src="/img/mole_cartoon_T.png">
+		<img class="explode" src="/img/explode.svg">
+	</div>
+	<div class="box" id="eight">
+		<img class="mole" src="/img/mole_cartoon_T.png">
+		<img class="explode" src="/img/explode.svg">
+	</div>
+	<div class="box" id="nine">
+		<img class="mole" src="/img/mole_cartoon_T.png">
+		<img class="explode" src="/img/explode.svg">
+	</div>	
+</div>	
+
+<div id="button">Score<div class="buttons" id="score">0</div></div>
+
+
+
+
+<script>
+
+	// timmer variables here
+	var speed = 2000; // 2 seconds
+	var fadeInSpeed = 200; // speed of fade in
+	var delaySpeed = 1000;
+	var moles = $('.mole');
+	var count = 0;
+	// Returns a random integer between min and max
+	// Using Math.round() will give you a non-uniform distribution!
+
+	function getRandomInt(min, max) {
+	  return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+	function selectMole()
+	{
+		var randomId = getRandomInt(1,9);
+		var randomMole = moles[randomId - 1];
+		$(randomMole).fadeIn(fadeInSpeed).delay(delaySpeed).fadeOut();
+	}
+	///// setInterval 2 seconds
+	setInterval(selectMole, speed);	
+	// click handler on all the .mole
+	// when clicked do $(this).hide()
+	// var score = 0;
+	$('.mole').click(function() {
+		count++;
+		$(this).hide()
+		console.log(count);
+		$('#score').html(count);
+	});
+
+	
+
+</script>		
+
+</body>
+</html>
