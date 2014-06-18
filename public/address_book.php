@@ -7,6 +7,28 @@ $ads = new AddressDataStore("contacts.csv");
 //$ads->filename = 'contacts.csv';
 $addressBook = $ads->readAddressBook();
 
+if (isset($_GET['removeIndex'])) 
+{
+	$index = $_GET['removeIndex'];
+	unset($addressBook[$index]);
+	$addressBook = array_values($addressBook);
+}
+
+if(count($_FILES) > 0 && $_FILES['file1']['error'] == 0) 
+{
+	var_dump($_FILES);
+	if($_FILES['file1']['type'] == 'text/csv') 
+	{
+		$upload_dir = '/vagrant/sites/codeup.dev/public/';
+		$filename = basename($_FILES['file1']['name']);
+		$saved_filename = $upload_dir . $filename; 
+		move_uploaded_file($_FILES['file1']['tmp_name'], $saved_filename);
+		$newBooks = new AddressDataStore($saved_filename);
+		$uploadBooks = $newBooks->readAddressBook();
+		$addressBook = array_merge($addressBook, $uploadBooks);
+	}	
+}
+
 if (!empty($_POST))
 { 
 	if(!empty($_POST['Name']) && !empty($_POST['Address']) && !empty($_POST['City']) && !empty($_POST['State']) && !empty($_POST['Zip'])&& !empty($_POST['Phone']))
@@ -20,14 +42,14 @@ if (!empty($_POST))
 		$newAddress['Phone'] = $_POST['Phone'];
 
 		$addressBook[] = $newAddress;
-	$ads->writeAddressBook($addressBook);
+	
 	}
 	else
 	{
 		$errorMessage = "Validation failed. Please complete all fields.";
 	}
 }
-
+$ads->writeAddressBook($addressBook);
 ?>
 <!DOCTYPE html>
 	<html>
@@ -48,13 +70,18 @@ if (!empty($_POST))
 						<th>State</th>
 						<th>Zip</th>
 						<th>Phone</th>
+						<th>Remove</th>
 					</tr>
-				<? foreach ($addressBook as $index => $row): ?>
+
+				<? foreach ($addressBook as $index => $row) : ?> 
+
 					<tr>
 						<? foreach ($row as $column): ?>		
 						<td><?= $column;?></td>
 						<? endforeach; ?>
+						<td><?= "<a href=\"address_book.php?removeIndex={$index}\">Remove Item </a>"?></td> :	
 					</tr>
+					
 				<? endforeach; ?>	
 				</table>
 			</p>
@@ -80,6 +107,19 @@ if (!empty($_POST))
 		</p>
 		<p>	
 			<input type="submit">		
+		</p>
+	</form>
+	</form>
+	
+	<h3>Upload File</h3>
+
+	<form method="POST" enctype="multipart/form-data">
+		<p>
+			<label for="file1">File to upload: </label>
+			<input type="file" id="file1" name="file1">
+		</p>
+		<p>
+			<input type="submit" value="Upload">
 		</p>
 	</form>
 </body>
