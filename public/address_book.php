@@ -5,7 +5,7 @@ $errorMessage = '';
 $filename = 'contacts.csv';
 $ads = new AddressDataStore("contacts.csv");
 //$ads->filename = 'contacts.csv';
-$addressBook = $ads->readAddressBook();
+$addressBook = $ads->read();
 
 if (isset($_GET['removeIndex'])) 
 {
@@ -16,7 +16,6 @@ if (isset($_GET['removeIndex']))
 
 if(count($_FILES) > 0 && $_FILES['file1']['error'] == 0) 
 {
-    var_dump($_FILES);
     if($_FILES['file1']['type'] == 'text/csv') 
     {
         $upload_dir = '/vagrant/sites/codeup.dev/public/';
@@ -24,8 +23,9 @@ if(count($_FILES) > 0 && $_FILES['file1']['error'] == 0)
         $saved_filename = $upload_dir . $filename; 
         move_uploaded_file($_FILES['file1']['tmp_name'], $saved_filename);
         $newBooks = new AddressDataStore($saved_filename);
-        $uploadBooks = $newBooks->readAddressBook();
+        $uploadBooks = $newBooks->read();
         $addressBook = array_merge($addressBook, $uploadBooks);
+        $ads->write($addressBook);
     }   
 }
 
@@ -49,7 +49,7 @@ if (!empty($_POST))
         $errorMessage = "Validation failed. Please complete all fields.";
     }
 }
-$ads->writeAddressBook($addressBook);
+$ads->write($addressBook);
 ?>
 <!DOCTYPE html>
     <html>
@@ -73,13 +73,13 @@ $ads->writeAddressBook($addressBook);
                         <th>Remove</th>
                     </tr>
 
-                <? foreach ($addressBook as $index => $row) : ?> 
+                <? foreach ($addressBook as $index => $row): ?> 
 
                     <tr>
-                        <? foreach ($row as $column): ?>        
-                        <td><?= $column;?></td>
+                        <? foreach ($row as $column): ?>       
+                        <td><?= $column; ?></td>
                         <? endforeach; ?>
-                        <td><?= "<a href=\"address_book.php?removeIndex={$index}\">Remove Item </a>"?></td> :   
+                        <td><?= "<a href=\"address_book.php?removeIndex={$index}\">Remove Item </a>"?></td>  
                     </tr>
                     
                 <? endforeach; ?>   
