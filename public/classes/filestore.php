@@ -19,11 +19,11 @@ class Filestore
     {
         if($this->is_csv)
         {
-        return $this->read_csv();
+            return $this->read_csv();
         }
         else
         {
-        return $this->read_lines();    
+            return $this->read_lines();    
         }    
     }
 
@@ -31,83 +31,68 @@ class Filestore
     {
         if($this->is_csv)
         {
-        $this->write_csv($array);
+            $this->write_csv($array);
         } 
         else
         {
-        $this->write_lines($array);    
+            $this->write_lines($array);    
         }   
     }
 
-    /**
-     * Returns array of lines in $this->filename
-     */
+  
     private function read_lines()
     {
         $array = [];
-    
-
         if (empty($filename)) 
         {
-        $filename = '';
+            $filename = '';
 
         }
     
-        $contents = ''; 
+            $contents = ''; 
 
         if (is_readable($filename))    
         {
-        $handle = fopen($filename, 'r');
-        $contents = trim(fread($handle, $bytes));
-        $array = explode(PHP_EOL, $contents);
-        fclose($handle);
-        return $array;
+            $handle = fopen($filename, 'r');
+            $contents = trim(fread($handle, $bytes));
+            $array = explode(PHP_EOL, $contents);
+            fclose($handle);
+            return $array;
         }
     }
-    /**
-     * Writes each element in $array to a new line in $this->filename
-     */
+
     private function write_lines($array)
-       {
+    {
         $handle = fopen($this->filename, 'w');
         foreach ($array as $item) {
         fwrite($handle, $item . PHP_EOL);       
-        }
+    }
     fclose($handle);
 }
     
-
-    /**
-     * Reads contents of csv $this->filename, returns an array
-     */
     private function read_csv()
     {
         $addresses = [];
         $handle = fopen($this->filename, 'r');
-            while(!feof($handle)) 
-            {
-                $row = fgetcsv($handle);
-                if(!empty($row))
-                {       
-                    $addresses[] = $row;
-                }
+        while(!feof($handle)) 
+        {
+            $row = fgetcsv($handle);
+            if(!empty($row))
+            {       
+                $addresses[] = $row;
             }
+        }
         fclose($handle); 
         return $addresses;
-    
     }
     
-
-    /**
-     * Writes contents of $array to csv $this->filename
-     */
     private function write_csv($array)
     {
         $handle = fopen($this->filename, 'w');
-            foreach ($array as $fields) 
-            {
-                fputcsv($handle, $fields);
-            }
+        foreach ($array as $fields) 
+        {
+            fputcsv($handle, $fields);
+        }
         fclose($handle);
     }          
 }
